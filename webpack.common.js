@@ -2,7 +2,8 @@ const path = require('path')
 
 module.exports = {
   entry: {
-    main: './src/index.js'
+    main: './src/index.js',
+    vendor: './src/vendor.js' // 3rd party libraries import
   },
   output: {
     path: path.join(__dirname, 'dist'), // Give the Webpack outputted JS bundle files names dynamically *
