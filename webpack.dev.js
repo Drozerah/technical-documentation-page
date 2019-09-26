@@ -5,6 +5,14 @@ const Autoprefixer = require('autoprefixer')
 
 module.exports = merge(common, {
 
+  entry: {
+    mocha_tests: './test/test.spec.js' // Mocha browser test script
+  },
+  node: {
+    // Mocha: suppress error "Can't resolve 'fs'"
+    // https://github.com/webpack-contrib/css-loader/issues/447#issuecomment-285603267
+    fs: 'empty'
+  },
   watch: true, // watch for changes in any of the resolved files
   devServer: {
     open: true, // Tells dev-server to open the browser after server had been started
@@ -24,6 +32,9 @@ module.exports = merge(common, {
     })
   ],
   module: {
+    // Suppress warning from mocha: "Critical dependency: the request of a dependency is an expression"
+    // @see https://webpack.js.org/configuration/module/#module-contexts
+    exprContextCritical: false,
     rules: [
       {
         test: /\.js$/,
@@ -34,7 +45,7 @@ module.exports = merge(common, {
         }
       },
       {
-        test: /\.scss$/,
+        test: /\.(scss|css)$/, // allow scss and css
         use: [
           {
             loader: 'style-loader', // 4. Inject CSS into the DOM
