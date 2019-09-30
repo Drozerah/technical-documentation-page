@@ -49,11 +49,38 @@
           const r = Array.from(t).filter(elm => {
             return elm.nodeName === 'SECTION'
           })
-
           assert.isAbove(sections.length, 0, 'There are no .main-section elements within #main-doc')
           assert.isAtLeast(sections.length, 5, 'There are not at least 5 elements with the class of "main-section"')
           assert.strictEqual(document.querySelectorAll('.main-section').length, sections.length, 'All of the page\'s .main-section elements should be within #main-doc')
           assert.strictEqual(r.length, t.length, 'Not all of the elements with the class of "main-section" are <section> elements')
+        })
+      })
+      describe('<section class=".main-section"> elements:', function () {
+        // get all <section class=".main-section"> elements
+        const elms = document.querySelectorAll('#main-doc .main-section')
+        it('each .main-section element should have a first child', function () {
+          // check if all elements have a first child
+          const asFirtChild = [...elms].every((elm) => {
+            // as a first child element ?
+            return elm.firstElementChild
+          })
+          assert.isTrue(asFirtChild, 'each .main-section element as a first child')
+        })
+        it('each .main-section childs should be a <header>', function () {
+          // check if every first child element as a node name of 'HEADER'
+          const areHeaders = [...elms].every((elm) => {
+            // as a first child element ?
+            if (elm.firstElementChild) return elm.firstElementChild.nodeName === 'HEADER'
+            return false
+          })
+          assert.isTrue(areHeaders, 'The first element within each .main-section is a <header>')
+        })
+        it('each <header> sould have text content', function () {
+          // check if each hearder has text content
+          const eachText = [...document.querySelectorAll('#main-doc .main-section > header')].every((text) => {
+            return text.textContent.length > 0
+          })
+          assert.isTrue(eachText, 'each <header> has text content')
         })
       })
     })
