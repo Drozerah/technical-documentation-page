@@ -30,11 +30,19 @@
 
     // Testing the page
     describe('Page:', function () {
+      /**
+      * #1: I can see a main element with a corresponding id="main-doc",
+      * which contains the page's main content (technical documentation)
+      */
       it('should have a <main> element with a corresponding id="main-doc"', function () {
         assert.isNotNull(document.getElementById('main-doc'), 'There is no element with an id of "main-doc"')
         assert.strictEqual(document.getElementById('main-doc').nodeName, 'MAIN', 'The "main-doc" element should be a <main>')
       })
       describe('<main> element:', function () {
+        /**
+        * #2: Within the #main-doc element, I can see several section elements,
+        * each with a class of main-section. There should be a minimum of 5
+        */
         it('should contain several <section> elements, each with a class of "main-section". There sould be a minimum of 5', function () {
           // get all ".main-section" elements within the "#main-doc" element
           const sections = document.querySelectorAll('#main-doc .main-section')
@@ -54,8 +62,36 @@
           assert.strictEqual(document.querySelectorAll('.main-section').length, sections.length, 'All of the page\'s .main-section elements should be within #main-doc')
           assert.strictEqual(r.length, t.length, 'Not all of the elements with the class of "main-section" are <section> elements')
         })
+        /**
+        * #5: The .main-section elements should contain at least 10 p elements total (not each)
+        */
+        const pElms = [...document.querySelectorAll('#main-doc .main-section p')].length
+        it('should contain at least 10 <p> elements', function () {
+          assert.isAbove(pElms, 0, 'there is no <p> element')
+          assert.isAtLeast(pElms, 10, 'number of p elements must be at least 10')
+        })
+        /**
+        * #6: The .main-section elements should contain at least 5 code elements total (not each)
+        */
+        const codeElms = [...document.querySelectorAll('#main-doc .main-section code')].length
+        it('should contain at least 5 <code> elements', function () {
+          assert.isAbove(codeElms, 0, 'there is no <code> element')
+          assert.isAtLeast(codeElms, 5, 'number of <code> elements must be at least 5')
+        })
+        /**
+         * #7: The .main-section elements should contain at least 5 liitems total (not each)
+         */
+        const liElms = [...document.querySelectorAll('#main-doc .main-section li')].length
+        it('should contain at least 5 <li> elements', function () {
+          assert.isAbove(liElms, 0, 'there is no <li> element')
+          assert.isAtLeast(liElms, 5, 'number of <li> elements must be at least 5')
+        })
       })
-      describe('<section class=".main-section"> elements:', function () {
+      describe('<section> elements:', function () {
+        /**
+        * #3: The first element within each .main-section should be a header element
+        * which contains text that describes the topic of that section
+        */
         // get all <section class=".main-section"> elements
         const elms = document.querySelectorAll('#main-doc .main-section')
         it('each section element should have a first child', function () {
