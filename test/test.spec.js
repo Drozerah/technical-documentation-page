@@ -58,29 +58,45 @@
       describe('<section class=".main-section"> elements:', function () {
         // get all <section class=".main-section"> elements
         const elms = document.querySelectorAll('#main-doc .main-section')
-        it('each .main-section element should have a first child', function () {
+        it('each section element should have a first child', function () {
           // check if all elements have a first child
-          const asFirtChild = [...elms].every((elm) => {
+          const haveFirtChild = [...elms].every((elm) => {
             // as a first child element ?
             return elm.firstElementChild
           })
-          assert.isTrue(asFirtChild, 'each .main-section element as a first child')
+          assert.isTrue(haveFirtChild, 'each section element have a first child')
         })
-        it('each .main-section childs should be a <header>', function () {
+        it('each section first child should be a <header>', function () {
           // check if every first child element as a node name of 'HEADER'
           const areHeaders = [...elms].every((elm) => {
             // as a first child element ?
             if (elm.firstElementChild) return elm.firstElementChild.nodeName === 'HEADER'
             return false
           })
-          assert.isTrue(areHeaders, 'The first element within each .main-section is a <header>')
+          assert.isTrue(areHeaders, 'The first element within each section is a <header>')
         })
         it('each <header> sould have text content', function () {
-          // check if each hearder has text content
+          // check if each header have text content
           const eachText = [...document.querySelectorAll('#main-doc .main-section > header')].every((text) => {
             return text.textContent.length > 0
           })
-          assert.isTrue(eachText, 'each <header> has text content')
+          assert.isTrue(eachText, 'each <header> have a text content')
+        })
+        /**
+        * #4: Each section element with the class of main-section should also have an id that
+        * corresponds with the text of each header contained within it. Any spaces should be
+        * replaced with underscores (e.g. The section that contains the header "Javascript and Java"
+        * should have a corresponding id="Javascript_and_Java")
+        */
+        it('each section element should have an id attribute', function () {
+          // check id length for each element
+          const haveId = [...elms].every(elm => elm.id.length > 0)
+          assert.isTrue(haveId, 'each section element have an id attribute')
+        })
+        it('each section id attribute should corresponds with the text of its header child element where underscores are replaced with spaces', function () {
+          // compare every id and first element child text content
+          const areValidId = [...elms].every(elem => elem.id.replace(/_/g, ' ') === elem.firstElementChild.textContent)
+          assert.isTrue(areValidId, 'each section element have an id attribute that corresponds with the text of each header contained within it where underscores are replaced with spaces')
         })
       })
     })
