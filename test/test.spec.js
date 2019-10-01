@@ -15,10 +15,19 @@
     div.setAttribute('id', 'mocha')
     div.style.position = 'fixed'
     div.style.bottom = '0px'
-    div.style.width = '100%'
     div.style.margin = '0px'
+    div.style.padding = '20px'
+    div.style.width = 'calc(100% - 40px)'
+    div.style.height = '20%'
+    div.style.overflowX = 'hidden'
     div.style.background = 'white'
     document.body.appendChild(div)
+    // get mocha div height
+    const mochaElm = document.getElementById('mocha')
+    // get body element
+    const body = document.querySelector('body')
+    // set body margin bottom equal to mocha div height
+    body.style.marginBottom = mochaElm.style.height
 
     // Mocha
     describe('Mocha:', function () {
