@@ -192,6 +192,23 @@
             it('should be one <a> element for every element with the class "main-section"', function () {
               assert.strictEqual(links.length, mainSectionElms.length, 'there is not one <a> element for each element with the class of "main-section"')
             })
+            /**
+            * #12: Each element with the class of nav-link should contain text
+            * that corresponds to the header text within each section
+            * (e.g. if you have a "Hello world" section/header,
+            * your navbar should have an element which contains the text "Hello world").
+            */
+            // get all <section> elements within "#main-doc .main-section > header" elements
+            const sections = [...document.querySelectorAll('#main-doc .main-section > header')]
+            const textContentMatches = [...navBar.querySelectorAll('a')].every((link, idx) => link.textContent === sections[idx].textContent)
+            // check if every <a> contain text
+            haveText = [...navBar.querySelectorAll('a')].every(link => link.textContent.length > 0)
+            it('should contain text', function () {
+              assert.isTrue(haveText, 'each <a> do not contain text')
+            })
+            it('each <a> element shoud have a text that corresponds to the header text within each section', function () {
+              assert.isTrue(textContentMatches, 'each <a> element text do not correspond to the header text within each section')
+            })
           })
         })
       })
