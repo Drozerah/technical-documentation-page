@@ -160,15 +160,13 @@
           const navHeader = navBar.querySelectorAll('header')
           // get <nav> first child
           const navFirstChild = navBar.firstElementChild.nodeName
-          console.dir(navBar)
-          console.dir(navFirstChild)
           it('should contain one <header> element as first child element', function () {
-            assert.strictEqual(navHeader.length, 1, '<nav> do not cointain maximum one <header> element')
+            assert.strictEqual(navHeader.length, 1, '<nav> does not cointain maximum one <header> element')
             assert.strictEqual(navFirstChild, 'HEADER', '<nav> first child is not a <header> element')
           })
           describe('<header> element:', function () {
             it('should contain text description', function () {
-              assert.isAbove(navHeader[0].textContent.length, 0, '<header> element do not contain text')
+              assert.isAbove(navHeader[0].textContent.length, 0, '<header> element does not contain text')
             })
           })
           /**
@@ -183,11 +181,11 @@
           // get all elements with the class of "main-section"
           const mainSectionElms = document.getElementsByClassName('main-section')
           it('should contain <a> elements', function () {
-            assert.isAbove(links.length, 0, '<nav> do not cointain <a> elements')
+            assert.isAbove(links.length, 0, '<nav> does not cointain <a> elements')
           })
           describe('<a> elements:', function () {
             it('should have class of "nav-link"', function () {
-              assert.isAbove(linksAttr.length, 0, '<nav> do not cointain <a> elements with the class of "nav-link"')
+              assert.isAbove(linksAttr.length, 0, '<nav> does not cointain <a> elements with the class of "nav-link"')
             })
             it('should be one <a> element for every element with the class "main-section"', function () {
               assert.strictEqual(links.length, mainSectionElms.length, 'there is not one <a> element for each element with the class of "main-section"')
@@ -202,12 +200,31 @@
             const sections = [...document.querySelectorAll('#main-doc .main-section > header')]
             const textContentMatches = [...navBar.querySelectorAll('a')].every((link, idx) => link.textContent === sections[idx].textContent)
             // check if every <a> contain text
-            haveText = [...navBar.querySelectorAll('a')].every(link => link.textContent.length > 0)
+            const haveText = [...navBar.querySelectorAll('a')].every(link => link.textContent.length > 0)
             it('should contain text', function () {
-              assert.isTrue(haveText, 'each <a> do not contain text')
+              assert.isTrue(haveText, 'each <a> does not contain text')
             })
             it('each <a> element shoud have a text that corresponds to the header text within each section', function () {
-              assert.isTrue(textContentMatches, 'each <a> element text do not correspond to the header text within each section')
+              assert.isTrue(textContentMatches, 'each <a> element text does not correspond to the header text within each section')
+            })
+            /**
+            * #13: When I click on a navbar element, the page should navigate to the corresponding section
+            * of the main-doc element (e.g. If I click on a nav-link element that contains the text
+            * "Hello world", the page navigates to a section element that has that id and contains
+            * the corresponding header.
+            */
+            // check if every .nav-link have an href fulfilled attribute
+            const haveHref = [...navBar.querySelectorAll('a')].every(link => link.hash.length > 0)
+            // get all ".main-section" elements within the "#main-doc" element
+            // const sections = document.querySelectorAll('#main-doc .main-section')
+            it('each <a> element should have a fulfilled href attribute', function () {
+              assert.isTrue(haveHref, 'each .nav-link element have a not empty href attribute')
+            })
+            // check if every .nav-link have an href value that links it to its corresponding .main-section id attribute and text content
+            const matches = [...document.querySelectorAll('#main-doc .main-section')].every((elm, idx) => elm.id === [...links][idx].hash.replace(/#/g, '') && elm.id === sections[idx].textContent.replace(/\s/g, '_'))
+            console.log(` ${matches}`)
+            it('every <a> have an href value that links to its corresponding .main-section, id attribute and text content', function () {
+              assert.isTrue(matches, 'every <a> does not have an href attribute that links it to its corresponding .main-section, id attribute and text content')
             })
           })
         })
