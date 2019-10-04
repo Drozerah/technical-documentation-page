@@ -17,18 +17,18 @@
     div.style.bottom = '0px'
     div.style.margin = '0px'
     div.style.padding = '20px'
-    div.style.width = 'calc(100% - 40px)'
-    div.style.height = '20%'
+    div.style.width = 'calc(100% - 20px)'
+    div.style.height = '300px'
     div.style.overflowX = 'hidden'
     div.style.background = 'white'
+    div.style.borderTop = '20px solid white'
     document.body.appendChild(div)
     // get mocha div height
     const mochaElm = document.getElementById('mocha')
-    // get body element
-    const body = document.querySelector('body')
+    // get #main-doc element
+    const mainDoc = document.getElementById('main-doc')
     // set body margin bottom equal to mocha div height
-    body.style.marginBottom = mochaElm.style.height
-
+    mainDoc.style.paddingBottom = mochaElm.style.height
     // Mocha
     describe('Mocha:', function () {
       it('page should have an element with an id of "mocha"', function () {
@@ -222,7 +222,6 @@
             })
             // check if every .nav-link have an href value that links it to its corresponding .main-section id attribute and text content
             const matches = [...document.querySelectorAll('#main-doc .main-section')].every((elm, idx) => elm.id === [...links][idx].hash.replace(/#/g, '') && elm.id === sections[idx].textContent.replace(/\s/g, '_'))
-            console.log(` ${matches}`)
             it('every <a> have an href value that links to its corresponding .main-section, id attribute and text content', function () {
               assert.isTrue(matches, 'every <a> does not have an href attribute that links it to its corresponding .main-section, id attribute and text content')
             })
