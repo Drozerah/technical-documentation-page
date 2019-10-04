@@ -86,7 +86,9 @@ document.addEventListener('DOMContentLoaded', (event) => {
    */
   navLinksWrapper.addEventListener('click', (e) => {
     // remove class attribute if allready set
-    document.querySelector('.active').removeClass('active')
+    if (document.querySelector('.active')) {
+      document.querySelector('.active').removeClass('active')
+    }
     // add class attribute to clicked element
     e.target.addClass('active')
   })
