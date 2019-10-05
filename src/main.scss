@@ -17,7 +17,6 @@ html, body{
 body{
     height: 100vh;
     display: flex;
-    align-content: stretch;
     background-color: $bg;
     font-family: monospace;
     font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol;
@@ -25,11 +24,9 @@ body{
     font-size: 18px;
     #navbar, main{
         padding:40px;
+        padding-bottom: 0px;
     }
     .nav-wrapper{
-        border-right: 2px dotted #333;
-        height: 100vh;
-        flex-shrink: 0;
         #navbar{
             #nav-links{
                 display: flex;
@@ -51,6 +48,8 @@ body{
                 }
             }
             header{
+                text-align: center;
+                font-weight: 700;
                 padding: 20px;
                 border: 2px solid $primary;
                 box-shadow: 5px 6px 0px $primary;
@@ -61,10 +60,7 @@ body{
     }
     main{
         height: inherit;
-        overflow: scroll;
-        overflow-x: hidden;
         background-color: #fff;
-        flex-grow: 1;
         section{
             header{
                 color:#333;
@@ -90,4 +86,44 @@ body{
     }
 }
 
+/* RESPONSIVE */
+/*
+* MEDIA QUERIES
+*/
+// MOBILE
+@media screen and (max-width: 600px) {
+    body{
+        flex-direction: column;
+    }
+    .nav-wrapper{
+        #navbar{
+            padding-bottom: 20px;
+            #nav-links{
+                height: 120px;
+                overflow: scroll;
+                overflow-x: hidden;
+                border: 1px solid #00e0a5;
+            }
+        }
+    }
+    #main-doc{
+        padding-top: 0px;
+    }
+}
 
+// TABLET & UP
+@media screen and (min-width: 601px) {
+    body{
+        flex-direction: row;
+        align-content: stretch;
+    }
+    .nav-wrapper{
+        height: 100vh;
+        border-right: 2px dotted #333;
+        flex-shrink: 0;
+    }
+    main{
+        overflow: scroll;
+        overflow-x: hidden;
+    }
+}
