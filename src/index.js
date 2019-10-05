@@ -20,6 +20,15 @@ import hljs from 'highlight.js'
 
 document.addEventListener('DOMContentLoaded', (event) => {
   /**
+  * add conditionnaly FFC test script to page with search parameter
+  * @{url} http://localhost:8080/?ffc_test=1
+  */
+  if (window.location.search === '?ffc_test=1') {
+    const scriptTag = document.createElement('script')
+    scriptTag.src = 'https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js'
+    document.head.appendChild(scriptTag)
+  }
+  /**
   * forEach method polyfill for IE11
   * @{link} https://gist.github.com/bob-lee/e7520bfcdac266e5490f40c2759cc955
   */
