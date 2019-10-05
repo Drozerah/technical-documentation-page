@@ -22,7 +22,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
   // init highlight.js
   document.querySelectorAll('code').forEach(block => hljs.highlightBlock(block))
 
-  // DOM elements refernces
+  // DOM elements references
   // get #main-doc element
   const mainDocElem = document.getElementById('main-doc')
   // get all nav links elements
@@ -53,6 +53,14 @@ document.addEventListener('DOMContentLoaded', (event) => {
     }, 0)
   }
 
+  /** Get the offset of a given object from the top its parent element
+   *
+   * @param  {object} elem the given element
+   */
+  const getElemOffset = (elem) => {
+    return elem.getBoundingClientRect().top - elem.offsetParent.getBoundingClientRect().top
+  }
+
   /**
    * Add or Remove CSS class attribute with the name on '.active' on '.nav-links' elements
    * according to URL hash
@@ -68,7 +76,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
         // define the element/content to be scrolled to top
         const contentToScroll = document.getElementById(link.hash.replace(/#/g, ''))
         // scroll the content to top
-        return scrollTargetToTop(mainDocElem, contentToScroll)
+        scrollTargetToTop(mainDocElem, contentToScroll)
       } else {
         // remove class with the name of 'active' to the corresponding link
         link.removeClass('active')
@@ -85,11 +93,44 @@ document.addEventListener('DOMContentLoaded', (event) => {
    * add '.active' class name when a link is clicked
    */
   navLinksWrapper.addEventListener('click', (e) => {
+    /**
+    * working with CSS attributes
+    */
     // remove class attribute if allready set
     if (document.querySelector('.active')) {
       document.querySelector('.active').removeClass('active')
     }
     // add class attribute to clicked element
     e.target.addClass('active')
+
+    /**
+    * working with smooth scrolling enhancement
+    */
+    // check browser compatibility for scrollIntoView method
+    if (document.documentElement.scrollIntoView) {
+      // prevent scroll to anchor element (default browser scroll behavour)
+      e.preventDefault()
+      // get the targeted anchor element
+      const anchorElem = document.getElementById(e.target.hash.replace(/#/g, ''))
+      // add smooth scroll to target
+      // try option
+      try {
+        anchorElem.scrollIntoView({
+          behavior: 'smooth'
+        })
+      } catch (error) {
+        // fallback to prevent browser crashing
+        anchorElem.scrollIntoView(true)
+      }
+      // listen scroll on #main-doc
+      mainDocElem.addEventListener('scroll', function scroll (event) {
+        // remove this scroll listener when anchorElem is scrolled to top
+        if (getElemOffset(anchorElem) <= 0) {
+          event.target.removeEventListener('scroll', scroll)
+          // update location hash into URL
+          window.location.hash = e.target.hash
+        }
+      })
+    }
   })
 })
