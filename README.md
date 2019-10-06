@@ -7,7 +7,7 @@
 
 ![technical documentation page image](https://raw.githubusercontent.com/Drozerah/MyGitHubStorage/master/img/technical-documentation-page/technical-documentation-page.png)
 
-Go and check it out live : https://technical-documentation-app.netlify.com/
+Go and check it out live : https://technical-documentation-app.netlify.com
 
 - Standards:
     - JavaScript ES6
