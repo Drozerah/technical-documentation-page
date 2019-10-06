@@ -7,6 +7,8 @@
 
 ![technical documentation page image](https://raw.githubusercontent.com/Drozerah/MyGitHubStorage/master/img/technical-documentation-page/technical-documentation-page.png)
 
+Go and check it out live : https://technical-documentation-app.netlify.com/
+
 - Standards:
     - JavaScript ES6
       -  Transpillation:
@@ -33,8 +35,7 @@
     - Webpack 4
         - more about the basic [Webpack configuration I've created](https://github.com/Drozerah/webpack-4-configuration) and utilized for this project
 - Deployement: 
-    - netlify
-    - https://technical-documentation-app.netlify.com/
+    - [Netlify](https://technical-documentation-app.netlify.com/)
 - Version control:
     - Git                            
 - Software: 
