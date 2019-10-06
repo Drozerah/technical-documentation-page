@@ -32,7 +32,6 @@ body{
                 display: flex;
                 flex-direction: column;
                 margin-top: 40px;
-                
                 a{
                     color: $primary;
                     font-size: 24px;
@@ -48,13 +47,21 @@ body{
                 }
             }
             header{
-                text-align: center;
-                font-weight: 700;
-                padding: 20px;
-                border: 2px solid $primary;
-                box-shadow: 5px 6px 0px $primary;
-                font-size: 1em;
-                color: inherit;   
+                a{
+                    div{
+                        border: 2px solid $primary;
+                        box-shadow: 5px 6px 0px $primary;
+                        padding: 20px;
+                        text-align: center;
+                    }
+                    font-weight: 700;
+                    font-size: 1em;
+                    text-decoration: none;
+                    color: inherit;
+                    &:hover{
+                        color:$primary;
+                    }
+                }
             }
         }
     }
