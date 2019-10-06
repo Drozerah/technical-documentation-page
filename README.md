@@ -1,6 +1,6 @@
 # Technical Documentation Page
 
-[![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
+[![Netlify Status](https://api.netlify.com/api/v1/badges/45dac990-a34c-49af-807b-75eafbbbe9fe/deploy-status)](https://app.netlify.com/sites/technical-documentation-app/deploys) [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
 
 
 > This documentation page is my work for the "_Build a Technical Documentation Page_" for the _freeCodeCamp_ responsive web design certification.
@@ -34,7 +34,7 @@
         - more about the basic [Webpack configuration I've created](https://github.com/Drozerah/webpack-4-configuration) and utilized for this project
 - Deployement: 
     - netlify
-    - https://technical_documentation_page.netlify.com
+    - https://technical-documentation-app.netlify.com/
 - Version control:
     - Git                            
 - Software: 
