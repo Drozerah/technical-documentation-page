@@ -20,6 +20,24 @@ import hljs from 'highlight.js'
 
 document.addEventListener('DOMContentLoaded', (event) => {
   /**
+  * Move #author node element according to media queries
+  * @{doc} https://www.w3schools.com/howto/howto_js_media_queries.asp
+  */
+  const matchMediaQueries = (x) => {
+    // get #author node element
+    const node = document.getElementById('author')
+    if (x.matches) { // If media query matches
+      // move/append #author element to #nav-wrapper element
+      document.getElementById('nav-wrapper').appendChild(node)
+    } else {
+      // move/append #author element to #main-doc element
+      document.getElementById('main-doc').appendChild(node)
+    }
+  }
+  var x = window.matchMedia('(min-width: 601px)')
+  matchMediaQueries(x) // Call listener function at run time
+  x.addListener(matchMediaQueries) // Attach listener function on state changes
+  /**
   * add conditionnaly FFC test script to page with search parameter
   * @{url} http://localhost:8080/?ffc_test=1
   */
