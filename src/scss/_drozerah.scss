@@ -14,19 +14,19 @@
 }
 
 .drozerah path {
-    fill: #6a1b9a;
+    fill: $primary;
     fill-rule: evenodd;
 }
 
 .drozerah span {
     display: inline-block;
-    color: #6a1b9a;
+    color: $primary;
 }
 
 .drozerah:hover path {
-    fill:purple;
+    fill:#333;
 }
 
 .drozerah:hover span {
-    color: purple;
+    color: #333;
 }

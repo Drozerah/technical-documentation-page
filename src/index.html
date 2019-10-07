@@ -18,7 +18,7 @@
     <title>Technical Documentation Page - freeCodeCamp work</title>
 </head>
 <body>
-    <div class="nav-wrapper">
+    <div id="nav-wrapper">
       <nav id="navbar">
           <header><a href="/"><div>Technical Documentation Page</div></a></header> 
           <div id="nav-links">
@@ -29,6 +29,20 @@
             <a href="#Section_5" class="nav-link">Section 5</a>
           </div>
       </nav>
+      <div id="author">
+          <a href="https://github.com/Drozerah" class="drozerah" target="_blank" title="Drozerah web développeur - trouvez moi sur GitHub">
+            Coded by <span>Drozerah</span>
+            <!--
+              Bonjour, vous recherchez un contributeur pour l'un de vos projets web
+              ou encore, pour la création de votre site internet ? N'hésitez pas à me
+              contacter, plus d'informations à mon sujet en suivant ce lien :
+              https://technical-documentation-app.netlify.com/humans.txt
+            -->
+            <svg aria-labelledby="simpleicons-github-icon" role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12" class="path-name"/>
+            </svg>   
+        </a>
+      </div>
     </div>
     <main id="main-doc">
         <section class="main-section" id="Section_1">
@@ -56,121 +70,125 @@
           <code class="javascript">
   // code
 
-  document.addEventListener('DOMContentLoaded', (event) => { 
+    document.addEventListener('DOMContentLoaded', (event) => { 
+      document.querySelectorAll('code').forEach((block) => { 
     document.querySelectorAll('code').forEach((block) => { 
-        hljs.highlightBlock(block)
-    })
-  })
-          </code>
-        </pre>
-            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Perferendis officia molestias rerum perspiciatis quos sapiente, obcaecati deserunt unde dolorem explicabo nisi earum vel, voluptatibus quasi, neque nemo soluta at dicta architecto temporibus minus repellendus? Est nesciunt laborum optio odit cum ex necessitatibus reiciendis, maiores aliquid? Quibusdam amet iure odit neque.</p>
-        </section>
-        <section class="main-section" id="Section_3">
-            <header><div>Section 3</div></header>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure impedit laudantium quisquam mollitia blanditiis sapiente quibusdam minima, cum nobis fugit, distinctio consequuntur totam, vero quasi illo magni cumque sequi repellat. Dolores nam non perferendis, magnam illo suscipit beatae ea voluptatibus.</p>
-            <pre>
-              <code class="javascript">
-  /**
-  * STYLES
-  */
-  import './main.scss'
-  // import '../node_modules/highlight.js/styles/github-gist.css'
-  import '../node_modules/highlight.js/styles/github.css'
-  // import '../node_modules/highlight.js/styles/xcode.css'
-  // import '../node_modules/highlight.js/styles/monokai.css'
-  // import '../node_modules/highlight.js/styles/atelier-lakeside-dark.css'
-  // import '../node_modules/highlight.js/styles/paraiso-light.css'
-  /**
-  * MODULES
-  */
-  // import { run } from './app/run.service'
-  /**
-  * NPM package
-  */
-  import hljs from 'highlight.js'
-  
-  // document.addEventListener('DOMContentLoaded', (event) => {})
-  document.querySelectorAll('code').forEach(block => hljs.highlightBlock(block))
-  
-  // run()
-              </code>
-            </pre>
-            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Hic aliquid libero nostrum cum vero a, molestias excepturi deserunt sed nisi?</p>
-        </section>
-        <section class="main-section" id="Section_4">
-            <header><div>Section 4</div></header>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Qui quaerat adipisci ut ex fuga natus sed officiis dolor repellat impedit enim hic labore architecto harum dolores corporis, cum consequatur maiores, officia exercitationem eum. Maxime, corporis saepe facere ducimus consequuntur illo sequi voluptatum voluptas ea quibusdam deserunt adipisci ut dolor in.</p>
-            <pre>
-              <code class="javascript">
-  const assert = require('chai').assert
-
-  // https://mochajs.org/#getting-started
-  const describe = require('mocha').describe
-  const it = require('mocha').it
-  
-  // example
-  describe('Array', function () {
-    describe('#indexOf()', function () {
-      it('should return -1 when the value is not present', function () {
-        assert.equal([1, 2, 3].indexOf(4), -1)
+      document.querySelectorAll('code').forEach((block) => { 
+          hljs.highlightBlock(block)
       })
     })
-  })              
-              </code>
-            </pre>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi facilis veniam velit inventore repudiandae vel nulla obcaecati esse, ipsam neque.</p>
-        </section>
-        <section class="main-section" id="Section_5">
-          <header><div>Section 5</div></header>
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas obcaecati placeat fugiat labore odit iste voluptatem iure quia in sunt.</p>
-          <pre>
-            <code class="javascript html">
-  /* eslint-disable no-undef */
-  /* eslint-disable no-unused-vars */
-  // https://mochajs.org/#getting-started
-  
-  (() => {
-    if (window.location.search === '?test=1') {
-      require('../node_modules/mocha/mocha.css')
-      const assert = require('chai').assert
-      // const expect = require('chai').expect
-      const { mocha } = require('mocha')
-      mocha.setup('bdd') // minimal setup
-  
-      /* Inject missing div id="mocha" within the body element */
-      const div = document.createElement('div')
-      div.setAttribute('id', 'mocha')
-      div.style.position = 'fixed'
-      div.style.bottom = '0px'
-      div.style.margin = '0px'
-      div.style.padding = '20px'
-      div.style.width = 'calc(100% - 40px)'
-      div.style.height = '20%'
-      div.style.overflowX = 'hidden'
-      div.style.background = 'white'
-      document.body.appendChild(div)
-      // get mocha div height
-      const mochaElm = document.getElementById('mocha')
-      // get body element
-      const body = document.querySelector('body')
-      // set body margin bottom equal to mocha div height
-      body.style.marginBottom = mochaElm.style.height
-  
-      // Mocha
-      describe('Mocha:', function () {
-        it('page should have an element with an id of "mocha"', function () {
-          assert.isNotNull(document.getElementById('mocha'), 'There is no element with an id of "mocha"')
-          console.warn('Mocha is running ./test/test.spec.js')
-        })
-      })
-      mocha.run()
-    }
-  })()
-                
             </code>
           </pre>
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi magni, ipsum illum deleniti cum facere et minima neque culpa reiciendis sequi, deserunt aperiam laudantium atque quos assumenda omnis error amet saepe non esse reprehenderit rem temporibus. Tempore sit cum officiis? Libero unde doloremque perspiciatis itaque quod pariatur animi laborum, excepturi accusamus minus fuga ratione nisi, numquam quas corporis, amet aliquam commodi quis ab ut laboriosam sit tenetur. Dolores architecto quod molestias vel fuga ex quaerat doloremque iure, aut nihil asperiores pariatur voluptatum doloribus eaque repellat tempora reprehenderit. Hic culpa, est, magni aspernatur quia nostrum aliquam suscipit nam sit, officiis rem.</p>
-        </section>
+              <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Perferendis officia molestias rerum perspiciatis quos sapiente, obcaecati deserunt unde dolorem explicabo nisi earum vel, voluptatibus quasi, neque nemo soluta at dicta architecto temporibus minus repellendus? Est nesciunt laborum optio odit cum ex necessitatibus reiciendis, maiores aliquid? Quibusdam amet iure odit neque.</p>
+          </section>
+          <section class="main-section" id="Section_3">
+              <header><div>Section 3</div></header>
+              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure impedit laudantium quisquam mollitia blanditiis sapiente quibusdam minima, cum nobis fugit, distinctio consequuntur totam, vero quasi illo magni cumque sequi repellat. Dolores nam non perferendis, magnam illo suscipit beatae ea voluptatibus.</p>
+              <pre>
+                <code class="javascript">
+    /**
+    * STYLES
+    */
+    import './main.scss'
+    // import '../node_modules/highlight.js/styles/github-gist.css'
+    import '../node_modules/highlight.js/styles/github.css'
+    // import '../node_modules/highlight.js/styles/xcode.css'
+    // import '../node_modules/highlight.js/styles/monokai.css'
+    // import '../node_modules/highlight.js/styles/atelier-lakeside-dark.css'
+    // import '../node_modules/highlight.js/styles/paraiso-light.css'
+    /**
+    * MODULES
+    */
+    // import { run } from './app/run.service'
+    /**
+    * NPM package
+    */
+    import hljs from 'highlight.js'
+    
+    // document.addEventListener('DOMContentLoaded', (event) => {})
+    document.querySelectorAll('code').forEach(block => hljs.highlightBlock(block))
+    
+    // run()
+                </code>
+              </pre>
+              <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Hic aliquid libero nostrum cum vero a, molestias excepturi deserunt sed nisi?</p>
+          </section>
+          <section class="main-section" id="Section_4">
+              <header><div>Section 4</div></header>
+              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Qui quaerat adipisci ut ex fuga natus sed officiis dolor repellat impedit enim hic labore architecto harum dolores corporis, cum consequatur maiores, officia exercitationem eum. Maxime, corporis saepe facere ducimus consequuntur illo sequi voluptatum voluptas ea quibusdam deserunt adipisci ut dolor in.</p>
+              <pre>
+                <code class="javascript">
+    const assert = require('chai').assert
+  
+    // https://mochajs.org/#getting-started
+    const describe = require('mocha').describe
+    const it = require('mocha').it
+    
+    // example
+    describe('Array', function () {
+      describe('#indexOf()', function () {
+        it('should return -1 when the value is not present', function () {
+          assert.equal([1, 2, 3].indexOf(4), -1)
+        })
+      })
+    })              
+  })              
+    })              
+                </code>
+              </pre>
+              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi facilis veniam velit inventore repudiandae vel nulla obcaecati esse, ipsam neque.</p>
+          </section>
+          <section class="main-section" id="Section_5">
+            <header><div>Section 5</div></header>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas obcaecati placeat fugiat labore odit iste voluptatem iure quia in sunt.</p>
+            <pre>
+              <code class="javascript html">
+    /* eslint-disable no-undef */
+    /* eslint-disable no-unused-vars */
+    // https://mochajs.org/#getting-started
+    
+    (() => {
+      if (window.location.search === '?test=1') {
+        require('../node_modules/mocha/mocha.css')
+        const assert = require('chai').assert
+        // const expect = require('chai').expect
+        const { mocha } = require('mocha')
+        mocha.setup('bdd') // minimal setup
+    
+        /* Inject missing div id="mocha" within the body element */
+        const div = document.createElement('div')
+        div.setAttribute('id', 'mocha')
+        div.style.position = 'fixed'
+        div.style.bottom = '0px'
+        div.style.margin = '0px'
+        div.style.padding = '20px'
+        div.style.width = 'calc(100% - 40px)'
+        div.style.height = '20%'
+        div.style.overflowX = 'hidden'
+        div.style.background = 'white'
+        document.body.appendChild(div)
+        // get mocha div height
+        const mochaElm = document.getElementById('mocha')
+        // get body element
+        const body = document.querySelector('body')
+        // set body margin bottom equal to mocha div height
+        body.style.marginBottom = mochaElm.style.height
+    
+        // Mocha
+        describe('Mocha:', function () {
+          it('page should have an element with an id of "mocha"', function () {
+            assert.isNotNull(document.getElementById('mocha'), 'There is no element with an id of "mocha"')
+            console.warn('Mocha is running ./test/test.spec.js')
+          })
+        })
+        mocha.run()
+      }
+    })()
+                  
+              </code>
+            </pre>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi magni, ipsum illum deleniti cum facere et minima neque culpa reiciendis sequi, deserunt aperiam laudantium atque quos assumenda omnis error amet saepe non esse reprehenderit rem temporibus. Tempore sit cum officiis? Libero unde doloremque perspiciatis itaque quod pariatur animi laborum, excepturi accusamus minus fuga ratione nisi, numquam quas corporis, amet aliquam commodi quis ab ut laboriosam sit tenetur. Dolores architecto quod molestias vel fuga ex quaerat doloremque iure, aut nihil asperiores pariatur voluptatum doloribus eaque repellat tempora reprehenderit. Hic culpa, est, magni aspernatur quia nostrum aliquam suscipit nam sit, officiis rem.</p>
+          </section>
     </main>
     <noscript>
       <strong>We're sorry but this page doesn't work properly without JavaScript enabled. Please enable it to continue.</strong>
