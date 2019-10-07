@@ -1,0 +1,46 @@
+/* TEAM */
+
+Developer: Thomas G. aka Drozerah
+                            
+GitHub: https://github.com/Drozerah
+Dev: https://dev.to/drozerah
+                         
+Location: France
+                                        
+/* SITE */
+                           
+Last update: 2019/10/07
+                          
+Standards:
+  JavaScript ES6
+    Transpillation:
+      Babel.js
+HTML5
+CSS 3
+  Responsive Web Design
+    Media Queries
+FlexBox
+Compilation
+  autoprefixer
+  postcss
+  purgecss
+SCSS
+  Transpilation
+    Sasslib
+Quality Assurance:
+  Linter:
+    Eslint code style standard
+  Testing:
+    Test runner: Mocha.js
+    Assertion library: Chai.js
+Bundler:
+  Webpack 4
+Deployement:
+  Netlify
+Version control:
+  Git
+Softwares:
+VScode
+Node.js
+
+Deployement: https://www.netlify.com/                            
