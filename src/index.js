@@ -1,13 +1,17 @@
 /**
  * STYLES
  */
-import './main.scss'
 import '../node_modules/highlight.js/styles/github-gist.css'
 // import '../node_modules/highlight.js/styles/github.css'
 // import '../node_modules/highlight.js/styles/xcode.css'
 // import '../node_modules/highlight.js/styles/monokai.css'
 // import '../node_modules/highlight.js/styles/atelier-lakeside-dark.css'
 import '../node_modules/highlight.js/styles/paraiso-light.css'
+import './main.scss'
+/**
+ * Files
+ */
+import '../favicon.png' // import favicon
 /**
  * MODULES
  */
