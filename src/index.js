@@ -11,7 +11,9 @@ import './main.scss'
 /**
  * Files
  */
-import '../favicon.png' // import favicon
+import '../favicon.png' // import favicon file
+import '../seo/robots.txt' // import robots.txt file
+import '../seo/humans.txt' // import humans.txt file
 /**
  * MODULES
  */
