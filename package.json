@@ -6,7 +6,7 @@
   "main": "index.js",
   "scripts": {
     "start": "webpack-dev-server --config webpack.dev.js",
-    "build:files": "cp ./humans.txt ./dist/humans.txt && cp ./netlify/_redirects ./dist/_redirects && cp ./favicon.png ./dist/favicon.png",
+    "build:files": "cp ./humans.txt ./dist/humans.txt && cp ./netlify/_redirects ./dist/_redirects",
     "build": "webpack --config webpack.prod.js && npm run build:files",
     "test": "mocha test/app.test.js"
   },
