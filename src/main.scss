@@ -137,5 +137,8 @@ body{
     main{
         overflow: scroll;
         overflow-x: hidden;
+        section:last-of-type {
+            margin-bottom: 40px;
+        }
     }
 }
